@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Unisoul - Find the Soul That Truly Gets You</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=DM+Sans:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#1a063b",
+                        "on-secondary-fixed": "#380d00",
+                        "background": "#1a063b",
+                        "outline": "#958f97",
+                        "on-tertiary-fixed-variant": "#6a0baa",
+                        "on-surface-variant": "#ccc4cd",
+                        "primary-container": "#1e112c",
+                        "surface-container-low": "#231043",
+                        "surface": "#1a063b",
+                        "on-surface": "#ebddff",
+                        "secondary-fixed": "#ffdbce",
+                        "tertiary-fixed-dim": "#e0b6ff",
+                        "inverse-on-surface": "#38265a",
+                        "on-tertiary-fixed": "#2e004e",
+                        "on-primary-container": "#8b7a9b",
+                        "on-secondary": "#53210c",
+                        "surface-container-highest": "#3d2b5e",
+                        "surface-container": "#271448",
+                        "tertiary-container": "#270044",
+                        "secondary-container": "#723922",
+                        "on-primary-fixed-variant": "#4f415e",
+                        "surface-container-high": "#322053",
+                        "primary": "#d3bfe3",
+                        "primary-fixed-dim": "#d3bfe3",
+                        "surface-tint": "#d3bfe3",
+                        "on-primary": "#382a47",
+                        "primary-fixed": "#efdbff",
+                        "on-secondary-container": "#f5a587",
+                        "outline-variant": "#4a454c",
+                        "tertiary-fixed": "#f2daff",
+                        "on-tertiary-container": "#a95ae9",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#e0b6ff",
+                        "on-secondary-fixed-variant": "#6f3720",
+                        "on-tertiary": "#4c007d",
+                        "secondary-fixed-dim": "#ffb59a",
+                        "inverse-primary": "#685877",
+                        "on-background": "#ebddff",
+                        "on-error": "#690005",
+                        "inverse-surface": "#ebddff",
+                        "error-container": "#93000a",
+                        "surface-bright": "#412f63",
+                        "surface-variant": "#3d2b5e",
+                        "surface-container-lowest": "#150136",
+                        "on-primary-fixed": "#231631",
+                        "secondary": "#ffb59a",
+                        "accent-warm": "#f5a587"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "gutter": "16px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "margin-desktop": "120px",
+                        "xs": "4px",
+                        "lg": "40px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["DM Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["DM Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["DM Sans"],
+                        "label-md": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(45, 27, 78, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(211, 191, 227, 0.15) 0%, transparent 70%);
+        }
+
+        .cta-gradient {
+            background: linear-gradient(135deg, #f5a587 0%, #ffb59a 100%);
+            box-shadow: 0 4px 15px rgba(245, 165, 135, 0.3);
+        }
+
+        .nav-link-active {
+            color: #d3bfe3 !important;
+            border-bottom: 2px solid #d3bfe3;
+        }
+
+        .nav-mobile-active {
+            color: #d3bfe3 !important;
+            background: rgba(211, 191, 227, 0.1);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-surface selection:bg-primary-fixed-dim selection:text-on-primary-fixed overflow-x-hidden font-body-md">
+
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 border-b border-white/5 bg-surface/40 backdrop-blur-2xl shadow-sm">
+        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('how-it-works')">
+                <img src="./assets/logo.jpeg" alt="Unisoul Logo" class="w-12 h-12 object-contain" />
+                <span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">Unisoul</span>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-lg">
+                <button id="nav-how-it-works"
+                    class="nav-link-active text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md pb-1"
+                    onclick="navigateTo('how-it-works')">How It Works</button>
+                <button id="nav-science"
+                    class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md pb-1"
+                    onclick="navigateTo('science')">The Science</button>
+                <button id="nav-community"
+                    class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md pb-1"
+                    onclick="navigateTo('community')">Community</button>
+            </nav>
+
+            <div class="flex items-center gap-sm">
+                <a href="https://app.unisoul.com" target="_blank"
+                    class="hidden sm:inline-block bg-primary hover:bg-primary-fixed-dim text-on-primary px-lg py-2 rounded-full font-label-md text-label-md transition-all duration-300 text-center">
+                    Launch App
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu(true)"
+                    class="md:hidden flex items-center justify-center p-2 text-on-surface hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide-out Mobile Menu Drawer -->
+    <div id="mobile-menu-drawer"
+        class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+        aria-hidden="true">
+        <!-- Backdrop Backdrop Overlay Layer -->
+        <div onclick="toggleMobileMenu(false)" class="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
+
+        <!-- Drawer Panel Body -->
+        <div
+            class="absolute right-0 top-0 bottom-0 w-72 bg-surface-container-low border-l border-white/10 p-6 flex flex-col justify-between shadow-2xl">
+            <div class="space-y-lg">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-accent-warm text-2xl"
+                            style="font-variation-settings: 'FILL' 1;">favorite</span>
+                        <span class="font-headline-md text-xl font-bold text-on-surface">Unisoul</span>
+                    </div>
+                    <button onclick="toggleMobileMenu(false)"
+                        class="p-2 text-on-surface hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-2xl">close</span>
+                    </button>
+                </div>
+
+                <!-- Vertical Mobile Router Menu Navigation Links -->
+                <nav class="flex flex-col gap-sm">
+                    <button id="mob-nav-how-it-works" onclick="handleMobileNavigation('how-it-works')"
+                        class="nav-mobile-active text-left w-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md px-4 py-3 rounded-xl transition-all">
+                        How It Works
+                    </button>
+                    <button id="mob-nav-science" onclick="handleMobileNavigation('science')"
+                        class="text-left w-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md px-4 py-3 rounded-xl transition-all">
+                        The Science
+                    </button>
+                    <button id="mob-nav-community" onclick="handleMobileNavigation('community')"
+                        class="text-left w-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md px-4 py-3 rounded-xl transition-all">
+                        Community
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Footer Action Links In Drawer Frame -->
+            <div class="space-y-sm">
+                <a href="https://app.unisoul.com" target="_blank"
+                    class="bg-primary hover:bg-primary-fixed-dim text-on-primary font-semibold px-4 py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm transition-all text-center w-full shadow-lg">
+                    <span class="material-symbols-outlined text-sm">open_in_new</span> Launch Web Application
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE CONTENT HUB -->
+    <main class="pt-24 min-h-[calc(100vh-140px)]">
+
+        <!-- ================= PAGE 1: HOW IT WORKS ================= -->
+        <div id="page-how-it-works" class="page-view">
+            <!-- Hero Section -->
+            <section
+                class="relative min-h-[90vh] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop py-xl">
+                <div class="absolute inset-0 hero-glow -z-10"></div>
+                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+                    <div class="space-y-lg order-2 md:order-1">
+                        <div class="inline-block px-4 py-1.5 rounded-full glass-card border-white/10 mb-4">
+                            <span class="text-primary font-label-sm text-label-sm uppercase tracking-widest">Meaningful
+                                Connections Only</span>
+                        </div>
+                        <h1
+                            class="font-display-lg text-display-lg md:text-[56px] leading-[1.1] text-on-surface max-w-lg">
+                            Find the Soul That Truly <span class="text-accent-warm italic">Gets You.</span>
+                        </h1>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                            Deep connections driven by personality psychology, high-dimensional AI profiles, and
+                            accessible layouts. No shallow swiping allowed.
+                        </p>
+
+                        <!-- Triple Option Action Buttons -->
+                        <div class="flex flex-col sm:flex-wrap lg:flex-row gap-base pt-md">
+                            <a href="https://unisoul-dating.netlify.app/login" target="_blank"
+                                class="bg-white/10 hover:bg-white/20 border border-white/20 text-on-surface px-lg py-4 rounded-xl flex items-center justify-center gap-2 font-label-md text-label-md transition-all">
+                                <span class="material-symbols-outlined">open_in_new</span>
+                                Open Web App
+                            </a>
+                            <a href="./downlaods/application-d4b1218d-f17a-42d9-a3dd-deae89c07d2e.apk" download
+                                class="cta-gradient text-on-secondary-fixed px-lg py-4 rounded-xl flex items-center justify-center gap-2 font-label-md text-label-md hover:scale-105 transition-transform">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 1;">android</span>
+                                Download Android APK
+                            </a>
+                            <a href="./downlaods/unisoul-desktop-1.0.0 Setup.exe" download
+                                class="border-2 border-primary/40 hover:border-primary text-primary px-lg py-4 rounded-xl flex items-center justify-center gap-2 font-label-md text-label-md transition-all">
+                                <span class="material-symbols-outlined">desktop_windows</span>
+                                Download for Desktop
+                            </a>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 relative">
+                        <div class="absolute -inset-4 bg-accent-warm/10 blur-[100px] rounded-full"></div>
+                        <div class="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+                            <img alt="Couple connecting over a device" class="w-full aspect-[4/5] object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw1Wlvx2jmuBe0DkQzV4QmvIERwTFhUuU1uXzv3IS5rmr1HPd3WgsANE8cfl1KHnK9JgUj6Yw2_XpfIgm9O1atQ4C-yhvncHvgiRhzuxhQ6H_5Ho1u2vYYB4PiDY4yUu0lL6HjbIcwhNVtDPfQ7lMVQlaMs6Gkf7L0oPjUz5bVNHDrhJdwgm7YA1QbbldDTDotnx5P69Ko5CTO3vuXDLZNRrv8NJnjtl9bLiQR9tPM95cIyAiObEOlIkiX5vOJSIjIp_Jn5mH_AB41" />
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 glass-card p-6 rounded-2xl hidden lg:block">
+                            <div class="flex items-center gap-4">
+                                <div class="p-2 bg-accent-warm/20 rounded-lg">
+                                    <span class="material-symbols-outlined text-accent-warm">favorite</span>
+                                </div>
+                                <div>
+                                    <p class="font-headline-md text-headline-md text-on-surface">92%</p>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant">Compatibility Match
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Bento Grid -->
+            <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+                <div class="text-center mb-xl">
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-base">Designed for Real Intimacy
+                    </h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+                        We moved beyond pictures to prioritize psychological safety, low-stimuli clarity, and absolute
+                        authenticity.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                    <div
+                        class="md:col-span-5 glass-card rounded-[2rem] p-lg flex flex-col justify-between overflow-hidden relative group">
+                        <div class="relative z-10">
+                            <h3 class="font-headline-md text-headline-md text-on-surface mb-base">Driven by Data,
+                                Matched with Heart</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Our vector embeddings analyze layered psychological criteria to match users based on
+                                core cognitive resonance.
+                            </p>
+                        </div>
+                        <div class="mt-lg relative h-48 md:h-64 flex items-center justify-center">
+                            <img class="w-full h-full object-contain mix-blend-lighten opacity-80"
+                                alt="Psychological network grid"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyXp5QBO3HmoyyHb2ZKIVGu1MwFQI3lVANHjnp3bYSLpPSAi7Vk1vuzmjqxwoGzyeNrHxknygju5WhDAc3RnQ0AgaL553DnMhvWyXdjri90ThCLIbk3pdvbstVH8hZWX3l-7IJDmd-xVvvNDkHJsSz39gaddN3Hd-NyJRtWY7S2U0s0qFGIIQCvrRCrGkwEL2i3Emhgy8KNl39siHl6swCvsmPWKrA6Hoa-aa33NPqidsTZ5G9syR1o36o9iRhukig6iSLqoDpi3X1" />
+                        </div>
+                    </div>
+                    <div
+                        class="md:col-span-7 glass-card rounded-[2rem] p-lg flex flex-col md:flex-row gap-lg overflow-hidden relative group">
+                        <div class="flex-1 space-y-md">
+                            <div class="p-3 bg-tertiary-container w-fit rounded-xl">
+                                <span class="material-symbols-outlined text-on-tertiary-container">diversity_1</span>
+                            </div>
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Inclusive by Design</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                A neurodivergent-friendly architecture utilizing a calm, vertical dashboard structure to
+                                manage choice anxiety.
+                            </p>
+                            <ul class="space-y-base pt-base">
+                                <li class="flex items-center gap-2 text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                    Calm, low-stimuli vertical stack layout
+                                </li>
+                                <li class="flex items-center gap-2 text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                    Interest-led real-time community spaces
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex-1 flex justify-center items-end">
+                            <div
+                                class="relative w-64 h-[320px] bg-surface-container rounded-t-[2.5rem] border-x border-t border-white/20 shadow-2xl p-4 space-y-md">
+                                <div class="h-4 w-1/2 bg-white/10 rounded"></div>
+                                <div class="space-y-base">
+                                    <div
+                                        class="h-16 w-full bg-white/5 rounded-xl border border-white/5 flex items-center p-3 gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-secondary/30"></div>
+                                        <div class="flex-1 space-y-1">
+                                            <div class="h-2 w-3/4 bg-white/20 rounded"></div>
+                                            <div class="h-2 w-1/2 bg-white/10 rounded"></div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="h-16 w-full bg-white/5 rounded-xl border border-white/5 flex items-center p-3 gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-primary/30"></div>
+                                        <div class="flex-1 space-y-1">
+                                            <div class="h-2 w-3/4 bg-white/20 rounded"></div>
+                                            <div class="h-2 w-1/2 bg-white/10 rounded"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 2: THE SCIENCE ================= -->
+        <div id="page-science" class="page-view hidden">
+            <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto space-y-xl">
+                <div class="text-center space-y-4">
+                    <div
+                        class="inline-block px-4 py-1.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-widest">
+                        Algorithmic Architecture
+                    </div>
+                    <h1 class="font-display-lg text-display-lg text-on-surface">The Intelligence Behind True
+                        Compatibility</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                        Unisoul bypasses superficial profile matching by processing multi-dimensional psychological
+                        layers through advanced database vector structures.
+                    </p>
+                </div>
+
+                <!-- Science Breakdown Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                    <div class="glass-card rounded-2xl p-md space-y-sm">
+                        <span class="material-symbols-outlined text-accent-warm text-3xl">psychology</span>
+                        <h3 class="text-xl font-bold text-on-surface">Cognitive Profiles (MBTI)</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            We analyze personality indicators not to separate types, but to find functional alignments
+                            in communication styles, decision-making systems, and cognitive environments.
+                        </p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-md space-y-sm">
+                        <span class="material-symbols-outlined text-primary text-3xl">hub</span>
+                        <h3 class="text-xl font-bold text-on-surface">Attachment Dynamics</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Understanding how you manage space, emotional availability, and anxiety helps our match
+                            engine connect you with partners that nurture security and balance.
+                        </p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-md space-y-sm">
+                        <span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl">forum</span>
+                        <h3 class="text-xl font-bold text-on-surface">Love Languages</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Our engine maps expression habits to facilitate mutual validation. We verify your natural
+                            relationship expression balances well with potential connections right from the start.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Math/Tech Vector Card -->
+                <div class="glass-card rounded-[2rem] p-lg border border-primary/20 bg-primary-container/40">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+                        <div class="space-y-md">
+                            <h3 class="font-headline-lg text-headline-lg text-on-surface">High-Dimensional Matching Via
+                                Vector Embeddings</h3>
+                            <p class="text-on-surface-variant">
+                                Profiles are safely converted into semantic vectors containing unique traits,
+                                priorities, and shared hyperfixations.
+                            </p>
+                            <p class="text-on-surface-variant text-sm">
+                                By computing mathematical similarity scores instantly in our secure database layer via
+                                Prisma ORM and Supabase, Unisoul tracks high-fidelity psychological alignments across
+                                dozens of metrics simultaneously.
+                            </p>
+                        </div>
+                        <div
+                            class="bg-surface-container-lowest border border-white/5 rounded-2xl p-6 font-mono text-xs text-primary/80 space-y-2 overflow-x-auto">
+                            <p class="text-slate-500">// Calculating matching vector distance index</p>
+                            <p><span class="text-accent-warm">const</span> matchScore = cosineSimilarity(userProfileA,
+                                userProfileB);</p>
+                            <p><span class="text-accent-warm">if</span> (matchScore &gt; <span
+                                    class="text-emerald-400">0.85</span>) {</p>
+                            <p class="pl-4">triggerDeepConnectionRoom(profileA.id, profileB.id);</p>
+                            <p class="pl-4 text-slate-400">console.log(<span class="text-purple-400">"Resonance index
+                                    matched successfully."</span>);</p>
+                            <p>}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 3: COMMUNITY ================= -->
+        <div id="page-community" class="page-view hidden">
+            <section class="py-xl px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto space-y-xl">
+                <div class="text-center space-y-4">
+                    <div
+                        class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm uppercase tracking-widest">
+                        Beyond the Chat Room
+                    </div>
+                    <h1 class="font-display-lg text-display-lg text-on-surface">Spaces Built to Fight Social Exhaustion
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                        Traditional dating forces fast, forced 1-on-1 dynamic pressure. Unisoul changes this by
+                        organizing interactive communities built entirely around shared focus points.
+                    </p>
+                </div>
+
+                <!-- Community Feature Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                    <div class="glass-card rounded-[2rem] p-lg space-y-md">
+                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">groups</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-on-surface">Interest-Led Live Chat Spaces</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Jump right into live, asynchronous group rooms focused around shared niche hyperfixations,
+                            philosophies, or hobbies. Build casual visibility and meet potential connections naturally
+                            without the immediate performance pressure of direct messaging.
+                        </p>
+                    </div>
+
+                    <div class="glass-card rounded-[2rem] p-lg space-y-md">
+                        <div class="w-12 h-12 rounded-xl bg-accent-warm/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-accent-warm">bolt</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-on-surface">Calm, Asynchronous Interaction</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Our layout system avoids bright visual indicators, gamified score reward systems, or
+                            demanding response windows. The vertical presentation architecture ensures you interact
+                            entirely at your own cognitive speed, minimizing sensory overstimulation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Shared Space Experience Section -->
+                <div class="glass-card rounded-[2rem] p-lg flex flex-col md:flex-row items-center gap-lg">
+                    <div class="flex-1 space-y-md">
+                        <h3 class="font-headline-lg text-headline-lg text-on-surface">Real-Time Synchronization, Secure
+                            Foundation</h3>
+                        <p class="text-on-surface-variant text-sm">
+                            Powered securely by Supabase's real-time engine and robust Row-Level Security (RLS) layers,
+                            our group spaces and individual rooms guarantee completely private, encrypted, and stable
+                            interaction fields.
+                        </p>
+                        <div class="flex items-center gap-4 text-xs font-semibold text-accent-warm">
+                            <span class="flex items-center gap-1"><span
+                                    class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Encrypted
+                                Architecture</span>
+                            <span>•</span>
+                            <span>Zero Data Scraping</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-80 bg-surface-container rounded-2xl p-4 border border-white/5 space-y-3">
+                        <div class="text-xs text-slate-400 font-bold tracking-wider">ACTIVE GROUP SPACES</div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5 flex justify-between items-center">
+                            <div>
+                                <p class="text-sm font-bold text-on-surface">#Neurodivergent-Tech</p>
+                                <p class="text-xs text-slate-400">142 users active</p>
+                            </div>
+                            <span class="material-symbols-outlined text-primary text-sm">login</span>
+                        </div>
+                        <div class="bg-white/5 p-3 rounded-xl border border-white/5 flex justify-between items-center">
+                            <div>
+                                <p class="text-sm font-bold text-on-surface">#Philosophy-And-Chill</p>
+                                <p class="text-xs text-slate-400">89 users active</p>
+                            </div>
+                            <span class="material-symbols-outlined text-primary text-sm">login</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Shared Bottom Hook Section -->
+        <section class="py-xl bg-surface-container-lowest/50">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto text-center space-y-lg">
+                <span class="material-symbols-outlined text-primary text-[48px]"
+                    style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                <h2 class="font-display-lg text-display-lg text-on-surface">The "Match" is just the beginning.</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                    Experience communication guided by deep psychological context. Try Unisoul across your preferred
+                    environments now.
+                </p>
+                <div class="pt-md flex flex-col sm:flex-row justify-center gap-md max-w-md mx-auto">
+                    <a href="https://app.unisoul.com" target="_blank"
+                        class="cta-gradient text-on-secondary-fixed px-xl py-4 rounded-full font-headline-md text-headline-md hover:scale-105 transition-transform text-center shadow-lg block w-full">
+                        Launch Web App
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-xl bg-surface-container-lowest border-t border-white/5">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-base max-w-7xl mx-auto">
+            <div class="flex flex-col items-center md:items-start gap-base">
+                <div class="flex items-center gap-2">
+                    <img src="./assets/logo.jpeg" alt="Unisoul Logo" class="w-12 h-12 object-contain" />
+                    <span class="font-headline-md text-headline-md font-bold text-on-surface">Unisoul</span>
+                </div>
+                <p class="font-label-md text-label-md text-on-surface-variant/80">© 2026 Unisoul. Built securely with
+                    Supabase.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-lg">
+                <a class="text-on-surface-variant/80 hover:text-on-surface transition-colors duration-200 font-label-md text-label-md"
+                    href="#">Privacy Policy</a>
+                <a class="text-on-surface-variant/80 hover:text-on-surface transition-colors duration-200 font-label-md text-label-md"
+                    href="#">Terms of Service</a>
+                <a class="text-on-surface-variant/80 hover:text-on-surface transition-colors duration-200 font-label-md text-label-md"
+                    href="#">Safety Tips</a>
+                <a class="text-on-surface-variant/80 hover:text-on-surface transition-colors duration-200 font-label-md text-label-md"
+                    href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE ROUTER & DRAWER JAVASCRIPT -->
+    <script>
+        // Core Single-Page App Router
+        function navigateTo(pageId) {
+            // Hide all structural page layouts
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Render specific route viewport active
+            document.getElementById(`page-${pageId}`).classList.remove('hidden');
+
+            // Reset desktop navbar items configuration
+            document.querySelectorAll('nav button').forEach(button => {
+                button.classList.remove('nav-link-active', 'text-primary', 'border-b-2', 'border-primary');
+                button.classList.add('text-on-surface-variant');
+            });
+
+            // Synchronize active layout states on Desktop Links
+            const activeNavButton = document.getElementById(`nav-${pageId}`);
+            if (activeNavButton) {
+                activeNavButton.classList.add('nav-link-active', 'text-primary');
+                activeNavButton.classList.remove('text-on-surface-variant');
+            }
+
+            // Synchronize active layout states on Mobile Links
+            document.querySelectorAll('#mobile-menu-drawer nav button').forEach(button => {
+                button.classList.remove('nav-mobile-active');
+            });
+            const activeMobButton = document.getElementById(`mob-nav-${pageId}`);
+            if (activeMobButton) {
+                activeMobButton.classList.add('nav-mobile-active');
+            }
+
+            // Global focus layout adjustment anchor
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Drawer Presentation Utility Controls
+        function toggleMobileMenu(open) {
+            const drawer = document.getElementById('mobile-menu-drawer');
+            if (open) {
+                drawer.classList.remove('translate-x-full');
+                drawer.setAttribute('aria-hidden', 'false');
+            } else {
+                drawer.classList.add('translate-x-full');
+                drawer.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        // Clean Mobile Navigation Wrapper
+        function handleMobileNavigation(pageId) {
+            navigateTo(pageId);
+            toggleMobileMenu(false); // Instantly dismiss drawer after action
+        }
+    </script>
+</body>
+
+</html>
